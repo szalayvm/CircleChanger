@@ -26,20 +26,20 @@ def main():
     That is, a  TEST   function will not be called
     until you begin work on the code that it is testing.
     """
-#    if m1_tests.is_implemented('__init__', 20):
-#        run_test_init()
-#    if m1_tests.is_implemented('get_distance_from'):
-#        run_test_get_distance_from()
-#    if m1_tests.is_implemented('swell_or_shrink_once'):
-#        run_test_swell_or_shrink_once()
-#    if m1_tests.is_implemented('swell_or_shrink_repeatedly', 4):
-#        run_test_swell_or_shrink_repeatedly()
-#    if m1_tests.is_implemented('swallow'):
-#        run_test_swallow()
-#    if m1_tests.is_implemented('change_color'):
-#        run_test_change_color()
-#    if m1_tests.is_implemented('change_to_original_color'):
-#        run_test_change_to_original_color()
+    if m1_tests.is_implemented('__init__', 20):
+         run_test_init()
+    if m1_tests.is_implemented('get_distance_from'):
+         run_test_get_distance_from()
+    if m1_tests.is_implemented('swell_or_shrink_once'):
+         run_test_swell_or_shrink_once()
+    if m1_tests.is_implemented('swell_or_shrink_repeatedly', 4):
+       run_test_swell_or_shrink_repeatedly()
+    if m1_tests.is_implemented('swallow'):
+        run_test_swallow()
+    if m1_tests.is_implemented('change_color'):
+        run_test_change_color()
+    if m1_tests.is_implemented('change_to_original_color'):
+        run_test_change_to_original_color()
     if m1_tests.is_implemented('change_to_next_color_in_tuple'):
         run_test_change_to_next_color_in_tuple()
 
@@ -467,15 +467,21 @@ class CircleChanger(object):
         fill color have no effect on or interaction with this method.
         """
         ################################################################
-        # TODO: 9.
+        # Done: 9.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_change_to_next_color_in_tuple
         #   function (below).  Third, implement and test this method.
         ################################################################
         self.count = self.count + 1
-        s = 0
-        if self.count <= (len(self.colors)-1):
-            self.circle.fill_color = self.colors[self.count-1]
+        for k in range(len(self.colors)):
+            if k + self.count > len(self.colors)-1:
+                add = (k +self.count)%len(self.colors)
+                n = 0
+                self.circle.fill_color = self.colors[n+add]
+            else:
+                self.circle.fill_color = self.colors[k]
+
+
 
 
 
